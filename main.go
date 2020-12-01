@@ -23,7 +23,10 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	slice := make([]dome01.Chapter, 3)
+	//slice := make([]dome01.Chapter, 3)
+	var slice []dome01.Chapter
+	var c dome01.Chapter
+	slice = append(slice, c)
 	// Find the review items
 	doc.Find("#list > dl > dd").Each(func(i int, s *goquery.Selection) {
 		// For each item found, get the band and title
@@ -37,5 +40,5 @@ func main() {
 		a.ChapterURL = zjURL
 		slice = append(slice, a)
 	})
-	fmt.Printf("%v", slice)
+	fmt.Println(slice[0].GetChapterContent())
 }
